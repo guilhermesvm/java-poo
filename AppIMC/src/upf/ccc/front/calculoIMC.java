@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 import upf.ccc.domain.Pessoa;
+import java.text.DecimalFormat;
 
 
 public class calculoIMC {
@@ -20,12 +21,12 @@ public class calculoIMC {
                 lerTestes();
                 break;
             case "R":
-            	System.out.println("");
                  mostrarResultados();
+                 System.out.println("");
                  break;
             case "E":
-            	System.out.println("");
             	mostrarEstatisticas();
+            	System.out.println("");
             	break;
             case "S":
             	System.out.println("Obrigado por utilizar nosso software, até mais!");
@@ -60,9 +61,11 @@ public class calculoIMC {
     }
     
     public static void mostrarResultados(){
+    	DecimalFormat deci = new DecimalFormat("0");
+    	
         for(Pessoa obj : lista){
             System.out.println("Nome: " + obj.nome + " | CPF: " + obj.cpf +
-            " | Altura: " + obj.altura + " | Peso: " + obj.peso + " | Indice IMC: " + obj.resultado()
+            " | Altura: " + obj.altura + " | Peso: " + deci.format(obj.peso) + " | Indice IMC: " + obj.resultado()
             );
         }
     }
